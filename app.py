@@ -27,8 +27,8 @@ st.caption(
 
 # load model
 
-model_path = 'Machine_Learning/temperature_model.pkl'
-features_path = 'Machine_Learning/feature_columns.pkl'
+model_path = 'temperature_model.pkl'
+features_path = 'feature_columns.pkl'
 
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
