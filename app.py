@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-import joblib
 import pydeck as pdk
 import plotly.graph_objects as go
+import pickle
 
 def convert_lat_lon(value):
     value = str(value).strip()
@@ -26,8 +26,16 @@ st.caption(
 )
 
 # load model
-model = joblib.load('temperature_model.pkl')
-feature_columns = joblib.load('feature_columns.pkl')
+
+model_path = 'Machine_Learning/temperature_model.pkl'
+features_path = 'Machine_Learning/feature_columns.pkl'
+
+with open(model_path, 'rb') as f:
+    model = pickle.load(f)
+
+with open(features_path, 'rb') as f:
+    feature_columns = pickle.load(f)
+
 
 
 # load dataset 
